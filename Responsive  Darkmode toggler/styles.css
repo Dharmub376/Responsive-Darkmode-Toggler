@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+}
+
+.toggle-container {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  perspective: 100px; /* Set the perspective for 3D effect */
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+  transform-style: preserve-3d; /* Enable 3D transformations */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+  transform: translateZ(5px); /* Apply 3D translation */
+}
+
+input:checked + .slider {
+  background-color: #86c7ff;
+  transform: rotateY(180deg); /* Rotate for 3D effect */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #86c7ff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px) translateZ(-5px); /* Apply 3D translation */
+  transform: translateX(26px) translateZ(-5px); /* Apply 3D translation */
+}
+
+.toggle-label {
+  margin-left: 10px;
+}
